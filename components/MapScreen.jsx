@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-navigation";
 import Map, { addMarker, userLat, userLong } from "./map";
-import { View, Text, Button, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { View, Text, Button, StyleSheet, TouchableOpacity, Alert , Image} from "react-native";
 import RestroomListScreen, { updateRestroom} from "./RestroomListScreen";
 const MapScreen = () => {
   const [initialLocation, setinitialLocation] = useState({
@@ -11,10 +11,11 @@ const MapScreen = () => {
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
-  const backLoc = () => {
+  const backLoc = () =>{
     var data = [];
-    Marker(data);
-  };
+    return addMarker(data);
+     
+  }
   const getData = () => {
     
     var data = [];
@@ -61,21 +62,20 @@ const MapScreen = () => {
           marginTop: 30
         }}
       >
-        <Text style={styles.buttonText}>Mason Public Restroom Finder</Text>
+        <Text style = {styles.container}>Mason Public Restroom Finder</Text>
       </View>
       <SafeAreaView style={styles.container}>
         <View style={styles.map}>
           <Map location={initialLocation}></Map>
         </View>
-
         <TouchableOpacity onPress={backLoc}>
           <View style={styles.icon}>
-            <Image>source = {{uri:'../assets/icon.png'}}</Image>
+            <Image source = {{uri:'../assets/icon.png'}}/>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={getData}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>GO</Text>
+            <Text style={styles.buttonText}>》 》 》 》GO《 《 《 《</Text>
           </View>
         </TouchableOpacity>
       </SafeAreaView>
@@ -102,21 +102,30 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "darkorange",
-    paddingHorizontal: 25,
-    paddingVertical: 12,
-    borderRadius: 25,
-    justifyContent: "center",
+    marginTop: -1,
+    paddingVertical: 15,
+    borderWidth: 2,
+    borderColor: "black",
+    borderRadius: 8,
+    backgroundColor: "green",
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 15,
+    fontWeight: "bold",
     alignItems: "center",
   },
   buttonText: {
-    color: "white",
-    fontSize: 18,
+    color: "yellow",
+    fontWeight: "bold",
+    fontSize: 30,
   },
-  icon: {
+  icon:{
+    color: "black",
     paddingHorizontal: 25,
     paddingVertical: 102,
     borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

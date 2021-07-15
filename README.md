@@ -10,3 +10,5 @@ To install:
 -npm install
 
 Make sure to have node.js
+
+Type npm start to start the application, you can scan the QR code to open it through Expo.
